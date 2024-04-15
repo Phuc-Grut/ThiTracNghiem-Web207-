@@ -1,0 +1,29 @@
+<main>
+    <div class="container mt-5" ng-controller="myctrl">
+        <div class="row">
+            <div class="col-md-9">
+                <h3 class="text-center pb-4 pt-4 text-uppercase">Môn Học Phổ Biến</h3>
+                <div class="row pb-5">
+                  <div class="col-6" ng-repeat="tcmh in monhoc">
+                    <div class="card mb-4">
+                        <img src="images/logos/{{tcmh.Logo}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{tcmh.Name}}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Bắt đầu ngay</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-top: 90px;">
+                <div class="list-group text-uppercase" style="font-weight: bold;">
+                    <header class="list-group-header bg-light text-dark"><h5><i class="bi bi-list-ul"></i>Danh mục</h5></header>
+                    <a href="/Web207-Assignment copy/danhmucmonhoc/CNTT.html" class="list-group-item list-group-item-action">Công nghệ thông tin</a>
+                    <a href="/Web207-Assignment copy/danhmucmonhoc/TiengAnh.html" class="list-group-item list-group-item-action">Tiếng Anh</a>
+                    <a href="/Web207-Assignment copy/danhmucmonhoc/Toán.html"class="list-group-item list-group-item-action">Toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

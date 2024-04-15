@@ -1,0 +1,44 @@
+
+<style>
+.container_feedback {
+  max-width: 1500px;
+  margin: 130px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.thank-you {
+  margin-top: 20px;
+  color: #28a745;
+  font-weight: bold;
+}
+body {
+    background-image: url('/images/background1.jpg'); /* Thay đổi đường dẫn tới hình ảnh của bạn */
+    background-size: cover; /* Đảm bảo hình ảnh nền bao phủ toàn bộ màn hình */
+    background-position: center; /* Canh giữa hình ảnh nền */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+}
+</style>
+<div class="container_feedback">
+    <div class="row">
+        <div class="col-5">
+            <img src="images/gopy.webp" alt="" style="width: 550px; height: 500px;">
+        </div>
+        <div class="col-7">
+            <b><h1 class="text-uppercase text-center" style="font-weight: bold;">góp ý</h1></b>
+            <form>
+                <div class="form-group mt-3">
+                <h5><label for="feedback" style="font-weight: bold;">Nhập lời góp ý của bạn:</label></h5>
+                <textarea class="form-control mt-3" id="feedback" name="feedback" style="height: 200px;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Gửi</button>
+            </form>
+            <div>
+                <p class="thank-you">Thank you for your feedback!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+  

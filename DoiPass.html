@@ -1,0 +1,53 @@
+<style>
+  body {
+    background-image: url('/images/background1.jpg'); /* Thay đổi đường dẫn tới hình ảnh của bạn */
+    background-size: cover; /* Đảm bảo hình ảnh nền bao phủ toàn bộ màn hình */
+    background-position: center; /* Canh giữa hình ảnh nền */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+}
+</style>
+  <!-- Nội dung chính -->
+  <div class="container" style="margin-top: 100px;">
+    <div class="row">
+      <!-- Cột cho ảnh -->
+      <div class="col-md-6 mb-4">
+        <img src="images/doipass.png" alt="Ảnh" class="img-fluid">
+      </div>
+      <!-- Cột cho biểu mẫu đăng ký -->
+      <div class="col-md-6">
+        <div class="alert alert-warning" ng-show="username==null">
+            <h2>Bạn không thể đổi mật khẩu khi chưa đăng nhập!</h2>
+        </div> 
+        <form name="frmdp" ng-show="username!=null">
+            <h2 class="mb-4 text-uppercase">Đổi mật khẩu</h2>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input value="{{username}}" name="username" type="text" disabled class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Mật khẩu cũ:</label>
+            <input required ng-model="pass_old" name="pass_old" type="password" class="form-control" placeholder="Nhập mật khẩu cũ">
+            <em class="text-danger" ng-show="frmdp.pass_old.$invalid">Vui lòng nhập nhập mật khẩu cũ</em>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Mật khẩu mới:</label>
+            <input required ng-model="pass_new1" name="pass_new1" type="password" class="form-control" placeholder="Nhập mật khẩu mới">
+            <em class="text-danger" ng-show="frmdp.pass_new1.$invalid">Mật khẩu phải trên 6 ký tự</em>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Nhập lại mật khẩu mới:</label>
+            <input required ng-model="pass_new2" name="pass_new2" type="password" class="form-control" placeholder="Nhập lại mật khẩu mới">
+            <em class="text-danger" ng-show="frmdp.pass_new2.$invalid">Vui lòng nhập lại mật khẩu mới</em>
+          </div>
+          <div class="pb-5">
+            <button type="submit" class="btn btn-secondary float-end">Hủy</button>
+            <button ng-click="doipass()" type="submit" class="btn btn-primary float-end me-2">Đổi mật khẩu</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+

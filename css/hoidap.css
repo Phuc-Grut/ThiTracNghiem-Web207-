@@ -1,0 +1,36 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.faq-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.faq-heading {
+    color: #343a40;
+}
+
+.faq-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.faq-card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    cursor: pointer;
+}
+
+.faq-card-body {
+    display: none;
+    padding: 15px;
+}
+
+.faq-card-body p {
+    color: #6c757d;
+}

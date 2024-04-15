@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="css/monhoc_style.css">
+<!-- /////////////////////////////// -->
+<div id="myCarousel" class="carousel custom-carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/banner1.png" class="d-block w-100" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <img src="images/banner2.png" class="d-block w-100" alt="Slide 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/banner3.png" class="d-block w-100" alt="Slide 3">
+      </div>
+  </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<div class="container mt-5">
+  <div class="row">
+      <article class="col-md-9">
+        <div>
+          <h1 class="text-center pb-4 pt-5 text-uppercase" style="font-weight: bold;">Tất cả môn học</h1>
+          <div class="row pb-5">
+              <div class="col-6" ng-repeat="mh in Subjects | limitTo:pageSize:start">
+                  <div class="card mb-5" style="width: 300px; height: 350px; border-radius: 15px; overflow: hidden;">
+                      <img src="images/logos/{{mh.Logo}}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title mb-3" style="font-weight: bold;">{{mh.Name}}</h5>
+                          <a ng-if="username==null" href="#!DangNhap" onclick="return confirm('Bạn có muốn đi đến trang đăng nhập?')" class="btn btn-primary">Đăng nhập để làm bài</a>
+                          <a onclick="return confirm('Bạn có chắc chắn muốn bắt đầu không?')" href="#!/tracnghiem/{{mh.Id}}/{{mh.Name}}" ng-if="username!=null" class="btn btn-primary">Bắt đầu ngay</a>
+                      </div>
+                  </div>
+              </div>
+              <div style="padding-left: 300px;">
+                <button ng-click="first()" type="button" class="btn btn-primary mx-1 pt-1"><<</button>
+                <button ng-click="prev()" type="button" class="btn btn-primary mx-1 pt-1"><</button>
+                <button ng-click="next()" type="button" class="btn btn-primary mx-1 pt-1">></button>
+                <button ng-click="last()" type="button" class="btn btn-primary mx-1 pt-1">>></button>
+              </div>
+          </div>
+        </div>
+      </article>
+      <aside ng-if="username==null" class="col-md-3 mb-5" style="margin-top: 120px;">
+        <div class="card" style="width: 500px;">
+            <img src="./images/tet.jpg!w700wp.webp" style="height: 750px;" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">Sản phẩm mới sắp ra mắt!</h5>
+                <p class="card-text">Chúng tôi sắp tung ra một sản phẩm mới và độc đáo. Hãy đợi chúng tôi!</p>
+                <a href="#" class="btn btn-primary">Xem chi tiết</a>
+            </div>
+        </div>
+      </aside>
+      <aside ng-if="username!=null" class="col-md-3 mb-5" style="margin-top: 90px;">
+          <div>
+            <div class="list-group text-uppercase">
+                <header class="list-group-header bg-secondary text-light"><h5 style="font-weight: bold;"><i class="bi bi-list-task"></i> Danh mục</h5></header>
+            </div>
+            <div>
+                <a ng-show="username==null" href="#!DangNhap" class="btn btn-primary list-group-item-action text-light">Đăng nhập để làm bài</a>
+                <a ng-show="username!=null" onclick="return confirm('Bạn có chắc chắn muốn bắt đầu không?')"  href="#!/tracnghiem/{{mh.Id}}/{{mh.Name}}" class="list-group-item list-group-item-action fw-bold" ng-repeat="mh in Subjects">{{mh.Name|uppercase}}</a>
+            </div>
+          </div>
+      </aside>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="css/cauhoi_style.css">
+<div class="container" style="margin-top: 150px; margin-bottom: 50px;">
+  <h1 class="text-uppercase text-center pb-5" style="font-weight: bold; font-size: 50px;">bài thi trắc nghiệm</h1>
+  <div class="card w-100">
+    <div class="card-header text-uppercase" style="font-weight: bold; font-size: 30px;">
+      {{tenMH}}
+      <div id="countdown" class="float-end"></div>
+      <div id="progress" class="float-end mr-3"></div>
+    </div>
+    <div class="card-body">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button ng-disabled="!isKetThuc" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">CÂU HỎI</button>
+        </li>
+        <li class="nav-item" role="presentation" >
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" ng-if="!isKetThuc" aria-selected="false">ĐIỂM</button>
+        </li>        
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <div class="card-body" ng-if="isKetThuc" ng-repeat="ch in caccauhoi | limitTo:pageSize:start" style="font-size: 20px;">
+            <h5 class="card-title" style="font-size: 30px;">Câu hỏi: {{ch.Text}}</h5>
+            <div class="form-check mt-3" ng-repeat="p in ch.Answers">
+              <input ng-click="kiemtraPA(p.Id, ch.AnswerId, ch.Marks)" class="form-check-input" type="radio" name="cauhoi_{{ch.Id}}" ng-model="answer" value="{{p.Id}}">
+              <label class="form-check-label" for="flexRadioDefault1">
+              {{p.Text}}
+              </label>
+            </div>
+          </div>
+          <h2 class="mt-3 text-center text-uppercase" ng-if="!isKetThuc"><span style="color: red;">Hết thời gian! Vui lòng nhấn tab Điểm để xem kết quả.</span></h2>
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          <div class="card">
+            <div class="card-header text-center text-uppercase">
+              <h2>Kết Quả Bài Kiểm tra</h2>
+            </div>
+            <div class="card-body">
+              <div style="font-size: 100px;" class="fireworks"></div>
+              <div style="font-size: 100px;" class="fireworks"></div>
+              <div style="font-size: 100px;" class="fireworks"></div>
+              <h1 class="card-title">Chúc mừng <span style="color: red;">{{fullname}}</span> đã hoàn thành bài kiểm tra.</h1>
+              <h2 class="card-title">Điểm của bạn: <b>{{diem}} / {{caccauhoi.length}}</b> điểm</h2>
+              <h4 class="card-title">Tỷ lệ: <b>{{phanTramDung | number:1}}</b> %</h4>
+              <div class="h3">
+                <h5>Kết quả của bạn:</h5>
+                <span style="color: red;">
+                  <div ng-show="phanTramDung < 2">
+                    <p>Bài thi không đạt yêu cầu.</p>
+                  </div>
+                  <div ng-show="phanTramDung >= 2 && phanTramDung < 3">
+                    <p>Bài thi đạt yêu cầu. Bạn cần cố gắng hơn.</p>
+                  </div>
+                  <div ng-show="phanTramDung >= 4 && phanTramDung < 4">
+                    <p>Bài thi của bạn đạt loại khá.</p>
+                  </div>
+                  <div ng-show="phanTramDung >= 5">
+                    <p>Bài thi của bạn đạt loại xuất sắc.</p>
+                  </div>
+                </span>
+              </div>
+              <a href="#!MonHoc" class="btn btn-primary">Quay lại</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-4">
+          <div>
+            <h3 ng-if="isKetThuc" style="font-weight: bold;">Câu hỏi : {{start+1}}/{{caccauhoi.length}}</h3> 
+          </div>
+        </div>
+        <div class="col-4">
+          <div style="padding-left: 100px;">
+            <button ng-if="isKetThuc" ng-click="first()" type="button" class="btn btn-primary mx-1 pt-1"> &laquo;&laquo; </button>
+            <button ng-if="isKetThuc" ng-click="prev()" type="button" class="btn btn-primary mx-1 pt-1"> &laquo; </button>
+            <button ng-if="isKetThuc" ng-click="next()" type="button" class="btn btn-primary mx-1 pt-1"> &raquo; </button>
+            <button ng-if="isKetThuc" ng-click="last()" type="button" class="btn btn-primary mx-1 pt-1"> &raquo;&raquo; </button>
+          </div>
+        </div>
+        <div class="col-4">
+          <div>
+            <button ng-if="isKetThuc" ng-click="ketThucBaiKiemTra()" class="float-end btn btn-primary">Kết thúc bài kiểm tra</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

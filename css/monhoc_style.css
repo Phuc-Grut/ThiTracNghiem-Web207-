@@ -1,0 +1,108 @@
+.col-md-3 {
+position: sticky;
+top: 90px;
+align-self: flex-start;
+}
+.card{
+width: 25rem;
+}
+.card-img-top{
+height: 200px;
+}
+.card{
+width: 260px;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+text-align: center;
+}
+.card {
+transition: transform 0.3s;
+}
+.card:hover {
+transform: scaleY(1.1);
+}
+body {
+    background-image: url('/images/background1.jpg'); /* Thay đổi đường dẫn tới hình ảnh của bạn */
+    background-size: cover; /* Đảm bảo hình ảnh nền bao phủ toàn bộ màn hình */
+    background-position: center; /* Canh giữa hình ảnh nền */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+}
+:root {
+    --fc1: rgb(255, 255, 255);
+    --fc2: rgb(0, 0, 0);
+    --fc3: rgb(255, 255, 255);
+    --fc4: rgb(0, 255, 68);
+    --fc5: rgb(255, 255, 0);
+    --fc: var(--fc1);
+  }
+  .fireworks:before,
+  .fireworks:after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: -120px 0 var(--fc), 120px 0 var(--fc), 0 120px var(--fc),
+      0 -120px var(--fc), 45px 45px var(--fc), -45px 45px var(--fc),
+      85px 85px var(--fc), -85px 85px var(--fc), 45px -45px var(--fc),
+      -45px -45px var(--fc), 85px -85px var(--fc), -85px -85px var(--fc),
+      65px 0 var(--fc), -65px 0 var(--fc), 0 65px var(--fc), 0 -65px var(--fc),
+      100px 45px var(--fc), -100px 45px var(--fc), -50px 100px var(--fc),
+      50px 100px var(--fc), 100px -45px var(--fc), -100px -45px var(--fc),
+      -50px -100px var(--fc), 50px -100px var(--fc), 5px 10px var(--fc);
+    animation: 1s bang ease-out infinite backwards,
+      1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  }
+  .fireworks:after {
+    animation-delay: 1.25s, 1.25s, 1.25s;
+    animation-duration: 1.25s, 1.25s, 6.25s;
+  }
+  @keyframes bang {
+    from {
+      box-shadow: 0 0 #fff;
+    }
+  }
+  
+  @keyframes gravity {
+    to {
+      transform: translate(-10px, 150px);
+      height: 6px;
+      width: 4px;
+      opacity: 0;
+    }
+  }
+  @keyframes position {
+    0%,
+    19.9% {
+      margin-top: 10%;
+      margin-left: 40%;
+      --fc: var(--fc1);
+    }
+  
+    20%,
+    39.9% {
+      margin-top: 2%;
+      margin-left: 70%;
+      --fc: var(--fc2);
+    }
+  
+    40%,
+    59.9% {
+      margin-top: 20%;
+      margin-left: 70%;
+      --fc: var(--fc3);
+    }
+  
+    60%,
+    79.9% {
+      margin-top: 30%;
+      margin-left: 20%;
+      --fc: var(--fc4);
+    }
+  
+    80%,
+    99.9% {
+      margin-top: 30%;
+      margin-left: 80%;
+      --fc: var(--fc5);
+    }
+  }
